@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2023 at 02:54 PM
+-- Generation Time: Jun 05, 2023 at 05:31 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -40,7 +40,9 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `title`, `author`, `available`) VALUES
 (1, 'Lee Raven Boy Thief', 'Louisa Young', 1),
-(3, 'Lionboy: The Truth', 'Louisa Young', 1);
+(3, 'Lionboy: The Truth', 'Louisa Young', 1),
+(14, 'test', 'test', 1),
+(19, 'test2', 'test2', 1);
 
 -- --------------------------------------------------------
 
@@ -51,7 +53,8 @@ INSERT INTO `books` (`id`, `title`, `author`, `available`) VALUES
 CREATE TABLE `borrowedbooks` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(50) NOT NULL,
-  `author` varchar(50) NOT NULL
+  `author` varchar(50) NOT NULL,
+  `books_id` bigint(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -78,13 +81,13 @@ ALTER TABLE `borrowedbooks`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `borrowedbooks`
 --
 ALTER TABLE `borrowedbooks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
