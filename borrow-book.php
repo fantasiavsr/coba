@@ -3,6 +3,7 @@
 $id = $_POST['id'];
 $title = $_POST['title'];
 $author = $_POST['author'];
+$books_id = $_POST['id'];
 
 // Perform the database insertion
 $servername = "localhost";
@@ -19,8 +20,8 @@ if ($conn->connect_error) {
 }
 
 // Prepare the SQL statement
-$stmt = $conn->prepare("INSERT INTO borrowedbooks (title, author) VALUES (?, ?)");
-$stmt->bind_param("ss", $title, $author);
+$stmt = $conn->prepare("INSERT INTO borrowedbooks (title, author, books_id) VALUES (?, ?, ?)");
+$stmt->bind_param("ssi", $title, $author, $books_id);
 
 // Execute the statement
 if ($stmt->execute()) {

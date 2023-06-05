@@ -2,7 +2,7 @@
 // Get the form data
 $title = $_POST['title'];
 $author = $_POST['author'];
-$available = 0;
+$available = 1;
 
 // Perform the database insertion
 $servername = "localhost";

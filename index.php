@@ -47,6 +47,10 @@ require_once("config.php");
                 setTitle("");
                 setAuthor("");
                 alert("Buku berhasil didaftarkan");
+
+                //reload page to borrowedbook content
+                window.location.reload();
+                
               } else {
                 // If the server returns an error message
                 alert("Gagal menyimpan buku ke database");
@@ -126,10 +130,11 @@ require_once("config.php");
                 // Handle the response from the server
                 if (data.success) {
                   // If the server returns a success message
-                  onRegister({ title, author });
-                  setTitle("");
-                  setAuthor("");
                   alert("Buku berhasil dipinjam");
+
+                  //reload page
+                  window.location.reload();
+
                 } else {
                   // If the server returns an error message
                   alert("Gagal mememinjam");
@@ -138,6 +143,7 @@ require_once("config.php");
               .catch((error) => {
                 // Handle any errors that occur during the request
                 console.error("Error:", error);
+                alert("Gagal mememinjam");
               });
               
             } else {
@@ -202,10 +208,10 @@ require_once("config.php");
                 // Handle the response from the server
                 if (data.success) {
                   // If the server returns a success message
-                  onRegister({ title, author });
-                  setTitle("");
-                  setAuthor("");
                   alert("Buku berhasil dikembalikan");
+
+                  //reload page
+                  window.location.reload();
                 } else {
                   // If the server returns an error message
                   alert("Gagal mengembalikan");
@@ -214,6 +220,7 @@ require_once("config.php");
               .catch((error) => {
                 // Handle any errors that occur during the request
                 console.error("Error:", error);
+                alert("Gagal mengembalikan");
               });
           } else {
             alert("Buku with ID " + selectedBook + " tidak ditemukan");
@@ -281,7 +288,7 @@ require_once("config.php");
       }
 
       function App() {
-        const [activeMenu, setActiveMenu] = React.useState("registration");
+        const [activeMenu, setActiveMenu] = React.useState("list");
         const [books, setBooks] = React.useState([]);
         const [borrowedBooks, setBorrowedBooks] = React.useState([]);
 
